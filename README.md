@@ -46,3 +46,7 @@ http://localhost:9292/product
         "price": 4500
     }
 ]
+
+
+// just cooment the @cacheable and 
+@cacheEvict for testing the app without cache
