@@ -37,12 +37,14 @@ public class ProductController {
 	}
 	
 	@GetMapping("/{id}")
+	@Cacheable(key = "#id", value = "Product", unless = "#result.price > 1000")
 	public Product getProductById(@PathVariable int id)
 	{
 		return dao.findProductById(id);
 	}
 	
 	@DeleteMapping("/{id}")
+	@CacheEvict(key = "#id", value = "Product")
 	public String remove(@PathVariable int id)
 	{
 		return dao.deleteProduct(id);
